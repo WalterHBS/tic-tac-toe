@@ -5,5 +5,9 @@ const makeGameBoard = function(){
     }
     return gameBoard
 }
+const MakePlayer = function(player, marker){
+return {player, marker}
+}
 const gameBoard = makeGameBoard()
-console.log(gameBoard)
+const playerOne = MakePlayer('Walter', 'X')
+console.log(gameBoard, playerOne)
