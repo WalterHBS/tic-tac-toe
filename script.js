@@ -12,7 +12,7 @@ const gameBoard = makeGameBoard()
 const gameFlow = function(){
     let counterX = 0
     let counterO = 0
-let value = gameBoard.keys() 
+let value = Object.values(gameBoard)
 for(marks in value){
     if(marks == 'x'){
         counterX++;
@@ -30,4 +30,3 @@ else{
 }
 
 const playerOne = MakePlayer('Walter', 'X')
-console.log(gameBoard, playerOne)
