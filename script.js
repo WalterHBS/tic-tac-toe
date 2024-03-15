@@ -31,21 +31,28 @@ else{
 const playerOne = MakePlayer('Walter', 'X')
 const determineWinner = function(){
     let value = Object.values(gameBoard)
-    for(let i = 0; i< value.length; i++){
+    console.log(value)
+    for(let i = 0; i < value.length; i++){
         if(i < 3){
-            if(value[i + 3] == value[i] && value[i + 6] == value[i])
+            if(value[i + 3] == value[i] && value[i + 6] == value[i] && value[i] != "")
             {
                 return value[i]
+
             }
         }
-        
-        else if(i % 3 == 0){
-            if(value[i + 1] == value[i] && value[i + 2] == value[i]){
+        if(i % 3 == 0){
+            if(value[i + 1] == value[i] && value[i + 2] == value[i] && value[i] != ""){
+                console.log(i)
+
                 return value[i]
             }
         }
-        else if((value[i] == 4 && value[i] == 0 && value[i] == 8) ||(value[i] == 4 && value[i] == 2 && value[i] == 6)){
-            return value[i]
+        if((value[0] == value[4] && value[8] == value[4]) || (value[2] == value[4] && value[6] == value[4])){
+
+            return value[4]
         }
+        
     }
+    return 'none'
 }
+determineWinner()
