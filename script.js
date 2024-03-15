@@ -31,7 +31,7 @@ else{
 const playerOne = MakePlayer('Walter', 'X')
 const determineWinner = function(){
     let value = Object.values(gameBoard)
-    console.log(value)
+    let isdraw = true
     for(let i = 0; i < value.length; i++){
         if(i < 3){
             if(value[i + 3] == value[i] && value[i + 6] == value[i] && value[i] != "")
@@ -51,8 +51,12 @@ const determineWinner = function(){
 
             return value[4]
         }
-        
+        if(value[i] == ''){
+            isdraw = false
+        }
     }
-    return 'none'
+    if(isdraw){
+        return 'draw'
+    }
 }
 determineWinner()
