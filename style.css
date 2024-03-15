@@ -1,0 +1,9 @@
+.game-container div{
+    border: 1px solid black;
+}
+.game-container{
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 300px;
+}

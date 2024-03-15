@@ -12,19 +12,23 @@ const gameBoard = makeGameBoard()
 const gameFlow = function(){
     let counterX = 0
     let counterO = 0
+
 let value = Object.values(gameBoard)
-for(marks in value){
-    if(marks == 'x'){
+for(marks of value){
+    if(marks == 'X'){
         counterX++;
     }
     if(marks == 'O'){
         counterO++;
     }
 }
-if(counterX == counterO){
+if(counterX == counterO || counterO == counterX + 1){
+    console.log(counterX, counterO)
     return 'X'
 }
-else{
+else if(counterX == counterO + 1){
+    console.log(counterX, counterO)
+
     return 'O'
 }
 }
@@ -59,4 +63,17 @@ const determineWinner = function(){
         return 'draw'
     }
 }
-determineWinner()
+const gameContainer = document.querySelector('.game-container')
+const createCells = function() {
+    for(let i = 1; i < 10; i++){
+        let div = document.createElement('div')
+        div.setAttribute('cell', i)
+        gameContainer.append(div)
+        div.addEventListener('click', ()=>{
+            div.innerHTML = gameFlow()
+            gameBoard['cell' + i] = gameFlow()
+
+        })
+    }
+}
+createCells()
