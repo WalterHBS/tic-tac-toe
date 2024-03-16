@@ -9,7 +9,7 @@ let playerLib
 const makeplayerLibrary = function(playerOne, playerTwo){
 return {playerOne, playerTwo}
 }
-const gameBoard = makeGameBoard()
+let gameBoard = makeGameBoard()
 const gameFlow = function(){
     let counterX = 0
     let counterO = 0
@@ -73,8 +73,10 @@ const createCells = function() {
         div.setAttribute('cell', i)
         gameContainer.append(div)
         div.addEventListener('click', ()=>{
+            if(gameBoard['cell' + i] = ""){
             div.innerHTML = gameFlow()
             gameBoard['cell' + i] = gameFlow()
+        }
 
         })
     }
@@ -89,3 +91,22 @@ form.style.display = 'none'
 gameContainer.style.display = 'grid'
 })
 createCells()
+const declareWinner = function(marker){
+    let printWinner = function(lib){
+        gameContainer.style.display = 'none'
+        let winnerContainer = document.querySelector('.declareWinner')
+        winnerContainer.style.display ='block'
+        winnerContainer.innerHTML = `${lib} is the winner!`
+    }
+    if(marker == 'X'){
+   printWinner(playerLib.playerOne)
+    }
+    if(marker == 'O'){
+        printWinner(playerLib.playerTwo)
+    } else if(marker == 'draw'){
+        gameContainer.style.display = 'none'
+        let winnerContainer = document.querySelector('.declareWinner')
+        winnerContainer.style.display ='block'
+        winnerContainer.innerHTML = `It's a tie!`
+    }
+}
