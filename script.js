@@ -85,6 +85,7 @@ e.preventDefault()
 let preData = new FormData(form)
 let userdata = Object.fromEntries(preData)
 playerLib = makeplayerLibrary(userdata.playerONE, userdata.playerTWO)
+form.style.display = 'none'
+gameContainer.style.display = 'grid'
 })
 createCells()
-/* gameContainer.style.display = 'grid' */
