@@ -92,8 +92,9 @@ const declareWinner = function(marker){
     let printWinner = function(lib){
         gameContainer.style.display = 'none'
         let winnerContainer = document.querySelector('.declareWinner')
+        let paraText = document.querySelector('p')
         winnerContainer.style.display ='block'
-        winnerContainer.innerHTML = `${lib} is the winner!`
+        paraText.innerHTML = `${lib} is the winner!`
     }
     if(marker == 'X'){
    printWinner(playerLib.playerOne)
@@ -104,6 +105,17 @@ const declareWinner = function(marker){
         gameContainer.style.display = 'none'
         let winnerContainer = document.querySelector('.declareWinner')
         winnerContainer.style.display ='block'
-        winnerContainer.innerHTML = `It's a tie!`
+        paraText.innerHTML = `It's a tie!`
     }
 }
+const reset = function() {
+    gameBoard = makeGameBoard()
+    gameContainer.innerHTML = ""
+    createCells()
+    document.querySelector('.declareWinner').style.display = 'none'
+    gameContainer.style.display = 'grid'
+}
+const resetBtn = document.querySelector('.playAgain')
+resetBtn.addEventListener('click', () => {
+    reset()
+})
