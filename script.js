@@ -24,12 +24,9 @@ for(marks of value){
     }
 }
 if(counterX == counterO || counterO == counterX + 1){
-    console.log(counterX, counterO)
     return 'X'
 }
 else if(counterX == counterO + 1){
-    console.log(counterX, counterO)
-
     return 'O'
 }
 }
@@ -48,7 +45,6 @@ const determineWinner = function(){
         //Check row win conditions
         if(i % 3 == 0){
             if(value[i + 1] == value[i] && value[i + 2] == value[i] && value[i] != ""){
-                console.log(i)
 
                 return value[i]
             }
@@ -73,9 +69,10 @@ const createCells = function() {
         div.setAttribute('cell', i)
         gameContainer.append(div)
         div.addEventListener('click', ()=>{
-            if(gameBoard['cell' + i] = ""){
+            if(gameBoard['cell' + i] == ""){
             div.innerHTML = gameFlow()
             gameBoard['cell' + i] = gameFlow()
+            declareWinner(determineWinner())
         }
 
         })
