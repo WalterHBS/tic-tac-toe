@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic-Tac-Toe</title>
     <script defer src="./script.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <form action="" method="post">
-        <div class="playerUno">
-            <label for="playerONE">Player 1:</label>
-            <input type="text" name="playerONE" id="playerONE">
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+        <form action="" method="post">
+            <div class="playerUno">
+                <label for="playerONE">Player 1:</label>
+                <input type="text" name="playerONE" id="playerONE">
+            </div>
+            <div class="playerDos">
+                <label for="playerTWO">player 2:</label>
+                <input type="text" name="playerTWO" id="playerTWO">
+            </div>
+            <button type="submit">Start Game</button>
+        </form>
+        <div class="game-container">
         </div>
-        <div class="playerDos">
-            <label for="playerTWO">player 2:</label>
-            <input type="text" name="playerTWO" id="playerTWO">
+        <div class="declareWinner">
+            <p></p>
+            <button class="playAgain">Play again?</button>
         </div>
-        <button type="submit">submit</button>
-    </form>
-    <div class="game-container">
-    </div>
-    <div class="declareWinner">
-        <p></p>
-        <button class="playAgain">Play again?</button>
     </div>
 </body>
 </html>
