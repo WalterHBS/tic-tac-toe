@@ -5,8 +5,9 @@ const makeGameBoard = function(){
     }
     return gameBoard
 }
-const MakePlayer = function(player, marker){
-return {player, marker}
+let playerLib
+const makeplayerLibrary = function(playerOne, playerTwo){
+return {playerOne, playerTwo}
 }
 const gameBoard = makeGameBoard()
 const gameFlow = function(){
@@ -32,11 +33,11 @@ else if(counterX == counterO + 1){
     return 'O'
 }
 }
-const playerOne = MakePlayer('Walter', 'X')
 const determineWinner = function(){
     let value = Object.values(gameBoard)
     let isdraw = true
     for(let i = 0; i < value.length; i++){
+        //check column win conditions
         if(i < 3){
             if(value[i + 3] == value[i] && value[i + 6] == value[i] && value[i] != "")
             {
@@ -44,6 +45,7 @@ const determineWinner = function(){
 
             }
         }
+        //Check row win conditions
         if(i % 3 == 0){
             if(value[i + 1] == value[i] && value[i + 2] == value[i] && value[i] != ""){
                 console.log(i)
@@ -51,6 +53,7 @@ const determineWinner = function(){
                 return value[i]
             }
         }
+        //Check Diagonal win conditions
         if((value[0] == value[4] && value[8] == value[4]) || (value[2] == value[4] && value[6] == value[4])){
 
             return value[4]
@@ -76,4 +79,12 @@ const createCells = function() {
         })
     }
 }
+const form = document.querySelector('form')
+form.addEventListener('submit', (e) => {
+e.preventDefault()
+let preData = new FormData(form)
+let userdata = Object.fromEntries(preData)
+playerLib = makeplayerLibrary(userdata.playerONE, userdata.playerTWO)
+})
 createCells()
+/* gameContainer.style.display = 'grid' */
